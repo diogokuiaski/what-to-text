@@ -2,11 +2,8 @@
 
 #[macro_use] extern crate rocket;
 
-#[get("/hello/<name>")]
-fn hello(name: String) -> String {
-    format!("Hello, {}!", name.as_str())
-}
+mod controllers;
 
 fn main() {
-    rocket::ignite().mount("/", routes![hello]).launch();
+    rocket::ignite().mount("/", routes![controllers::hello]).launch();
 }
